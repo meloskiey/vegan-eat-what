@@ -16,7 +16,7 @@ const recipeRoutes = require("./controllers/recipes");
 const indexRoutes = require("./controllers/index");
 
 
-mongoose.connect('mongodb+srv://meloskiey:Whatthehell95@cluster0-wbvpt.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://meloskiey:<Whatthehell95>@cluster0-wbvpt.mongodb.net/test',
     {useNewUrlParser: true,
         useCreateIndex: true
     });
