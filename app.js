@@ -11,14 +11,6 @@ const Comment = require("./models/comment");
 const User  = require("./models/user");
 // const seedDB = require("./seeds");
 
-const PORT = process.env.PORT;
-const mongoURI = process.env.MONGODB_URI;
-
-mongoose.connect(mongoURI, { useNewUrlParser: true });
-mongoose.connection.once("open", () => {
-  console.log("connected to mongo");
-});
-
 const commentRoutes = require("./controllers/comments");
 const recipeRoutes = require("./controllers/recipes");
 const indexRoutes = require("./controllers/index");
@@ -76,4 +68,7 @@ app.use("/recipes", recipeRoutes);
 //     res.send("here you are mother fucker")
 // });
 
-app.listen(PORT, () => console.log("auth happening on port", PORT));
+
+
+
+app.listen(process.env.PORT);
