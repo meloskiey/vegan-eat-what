@@ -9,14 +9,18 @@ const methodOverride = require("method-override");
 const Recipe = require("./models/recipe");
 const Comment = require("./models/comment");
 const User  = require("./models/user");
+const mongoURI = process.env.MONGODB_URI;
 // const seedDB = require("./seeds");
 
 const commentRoutes = require("./controllers/comments");
 const recipeRoutes = require("./controllers/recipes");
 const indexRoutes = require("./controllers/index");
 
+mongoose.connect(mongoURI, { useNewUrlParser: true });
+mongoose.connection.once("open", () => {
+  console.log("connected to mongo");
+});
 
-mongoose.connect("mongodb://localhost/vew_v4");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -67,9 +71,6 @@ app.use("/recipes", recipeRoutes);
 // app.get("/recipes/:id", function(req,res){
 //     res.send("here you are mother fucker")
 // });
-
-
-
 
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The Server Has Started!");
