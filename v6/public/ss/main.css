@@ -1,0 +1,26 @@
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail{
+    padding: 0;
+}
+
+.thumbnail.caption-full {
+    padding: 9px;
+}
+
+#delete-form {
+    display: inline;
+}
+
+.jumbotron{
+	background-image: url('https://previews.123rf.com/images/romastudio/romastudio1603/romastudio160300118/52849028-fond-de-fruits-en-bonne-sant%C3%A9-photo-studio-de-fruits-diff%C3%A9rents-sur-table-en-bois.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#meow{
+    color: green;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
