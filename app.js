@@ -16,11 +16,11 @@ const recipeRoutes = require("./controllers/recipes");
 const indexRoutes = require("./controllers/index");
 
 
-mongoose.connect('mongodb+srv://meloskiey:<password>@cluster0-wbvpt.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://meloskiey:Whatthehell95@cluster0-wbvpt.mongodb.net/test?retryWrites=true&w=majority',
     {useNewUrlParser: true,
         useCreateIndex: true
     });
-    
+
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
