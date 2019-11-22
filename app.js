@@ -6,6 +6,7 @@ const flash = require("connect-flash");
 const passport    = require("passport");
 const LocalStrategy = require("passport-local");
 const methodOverride = require("method-override");
+                        require('dotenv').load();
 const Recipe = require("./models/recipe");
 const Comment = require("./models/comment");
 const User  = require("./models/user");
@@ -16,10 +17,13 @@ const recipeRoutes = require("./controllers/recipes");
 const indexRoutes = require("./controllers/index");
 
 
-mongoose.connect('mongodb+srv://meloskiey:<Whatthehell95>@cluster0-wbvpt.mongodb.net/test',
-    {useNewUrlParser: true,
-        useCreateIndex: true
-    });
+mongoose.Promise = global.Promise;
+
+const databaseUri = process.env.MONGODB_URI;
+
+mongoose.connect(databaseUri, { useMongoClient: true })
+      .then(() => console.log(`Database connected`))
+      .catch(err => console.log(`Database connection error: ${err.message}`));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -75,4 +79,4 @@ app.use("/recipes", recipeRoutes);
 
 
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT, process.env.IP);
