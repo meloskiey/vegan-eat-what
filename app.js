@@ -1,6 +1,7 @@
 const express = require("express");
 const app     = express();
 const bodyParser  = require("body-parser");
+const cookieParser = require("cookie-parser");
 const mongoose    = require("mongoose");
 const flash = require("connect-flash");
 const passport    = require("passport");
@@ -26,9 +27,10 @@ mongoose.connect(databaseUri, { useMongoClient: true })
       .catch(err => console.log(`Database connection error: ${err.message}`));
 
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use(methodOverride("_method"));
+app.use(cookieParser('secret'));
 app.use(flash());
 // seedDB();
 
