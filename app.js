@@ -22,10 +22,9 @@ const mongoURI = process.env.MONGO_URI;
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
-// mongoose.connection.once("open",() =>{
-//     console.log("connected to mongo");
-// });
+}).once("open",() => {
+    console.log("connected to mango")
+})
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
