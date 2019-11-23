@@ -19,12 +19,13 @@ const indexRoutes = require("./controllers/index");
 const PORT = process.env.PORT || 3000;
 const mongoURI = process.env.MONGO_URI;
 
-mongoose.connect(mongoURI,{
-    useNewUrlParser: true
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
-mongoose.connect.once("open",() =>{
-    console.log("connected to mongo")
-});
+// mongoose.connection.once("open",() =>{
+//     console.log("connected to mongo");
+// });
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
