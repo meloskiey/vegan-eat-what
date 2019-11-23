@@ -17,7 +17,7 @@ const recipeRoutes = require("./controllers/recipes");
 const indexRoutes = require("./controllers/index");
 
 const PORT = process.env.PORT;
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = process.env.MONGODB_URI;
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
