@@ -9,14 +9,23 @@ const methodOverride = require("method-override");
 const Recipe = require("./models/recipe");
 const Comment = require("./models/comment");
 const User  = require("./models/user");
+require('dotenv').config();
 // const seedDB = require("./seeds");
 
 const commentRoutes = require("./controllers/comments");
 const recipeRoutes = require("./controllers/recipes");
 const indexRoutes = require("./controllers/index");
 
+const PORT = process.env.PORT || 3000;
+const mongoURI = process.env.MONGO_URI;
 
-mongoose.connect("mongodb://localhost/vew_v4");
+mongoose.connect(mongoURI,{
+    useNewUrlParser: true
+});
+mongoose.connect.once("open",() =>{
+    console.log("connected to mongo")
+});
+
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
