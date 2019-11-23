@@ -16,7 +16,7 @@ const commentRoutes = require("./controllers/comments");
 const recipeRoutes = require("./controllers/recipes");
 const indexRoutes = require("./controllers/index");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const mongoURI = process.env.MONGO_URI;
 
 mongoose.connect(mongoURI, {
